@@ -24,6 +24,12 @@
             
             <tag> 算法竞赛 </tag>
             
+            <tag> 二分答案 </tag>
+            
+            <tag> 位运算 </tag>
+            
+            <tag> 动态规划 </tag>
+            
         </tags>
       
     </entry>
@@ -47,9 +53,7 @@
       
         <tags>
             
-            <tag> 待填坑 </tag>
-            
-            <tag> tips </tag>
+            <tag> Tips </tag>
             
         </tags>
       
@@ -74,9 +78,7 @@
       
         <tags>
             
-            <tag> 待填坑 </tag>
-            
-            <tag> tips </tag>
+            <tag> Tips </tag>
             
         </tags>
       
@@ -126,12 +128,6 @@
       </categories>
       
       
-        <tags>
-            
-            <tag> 待填坑 </tag>
-            
-        </tags>
-      
     </entry>
     
     
@@ -154,8 +150,6 @@
         <tags>
             
             <tag> Tips </tag>
-            
-            <tag> 待填坑 </tag>
             
         </tags>
       
