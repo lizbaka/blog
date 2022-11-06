@@ -1,16 +1,4 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>「Luogu3231」 [HNOI2013]消毒 | lizbaka的博客</title><meta name="author" content="lizbaka"><meta name="copyright" content="lizbaka"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="「Luogu3231」 [HNOI2013]消毒 problem 题目描述 最近在生物实验室工作的小T遇到了大麻烦。 由于实验室最近升级的缘故，他的分格实验皿是一个长方体,其尺寸为a*b*c，a、b、c 均为正整数。为了实验的方便，它被划分为a*b*c个单位立方体区域，每个单位立方体尺寸为1*1*1。用(i,j,k)标识一个单位立方体，1 &lt;&#x3D;i&lt;&#x3D;a，1&lt;&#x3D;j&lt;&#x3D;b，1&amp;">
-<meta property="og:type" content="article">
-<meta property="og:title" content="「Luogu3231」 [HNOI2013]消毒">
-<meta property="og:url" content="https://lizbaka.moe/2019/01/21/%E3%80%8CLuogu3231%E3%80%8D-HNOI2013-%E6%B6%88%E6%AF%92/index.html">
-<meta property="og:site_name" content="lizbaka的博客">
-<meta property="og:description" content="「Luogu3231」 [HNOI2013]消毒 problem 题目描述 最近在生物实验室工作的小T遇到了大麻烦。 由于实验室最近升级的缘故，他的分格实验皿是一个长方体,其尺寸为a*b*c，a、b、c 均为正整数。为了实验的方便，它被划分为a*b*c个单位立方体区域，每个单位立方体尺寸为1*1*1。用(i,j,k)标识一个单位立方体，1 &lt;&#x3D;i&lt;&#x3D;a，1&lt;&#x3D;j&lt;&#x3D;b，1&amp;">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://lizbaka.moe/img/algo.png">
-<meta property="article:published_time" content="2019-01-21T03:11:00.000Z">
-<meta property="article:modified_time" content="2021-12-03T03:13:20.186Z">
-<meta property="article:author" content="lizbaka">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://lizbaka.moe/img/algo.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://lizbaka.moe/2019/01/21/%E3%80%8CLuogu3231%E3%80%8D-HNOI2013-%E6%B6%88%E6%AF%92/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>「Luogu3231」 [HNOI2013]消毒 | lizbaka的博客</title><meta name="author" content="lizbaka"><meta name="copyright" content="lizbaka"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="「Luogu3231」 [HNOI2013]消毒 problem 题目描述 最近在生物实验室工作的小T遇到了大麻烦。 由于实验室最近升级的缘故，他的分格实验皿是一个长方体,其尺寸为a*b*c，a、b、c 均为正整数。为了实验的方便，它被划分为a*b*c个单位立方体区域，每个单位立方体尺寸为1*1*1"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://lizbaka.moe/2019/01/21/%E3%80%8CLuogu3231%E3%80%8D-HNOI2013-%E6%B6%88%E6%AF%92/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
   root: '/',
   algolia: undefined,
   localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
@@ -191,7 +179,7 @@
   function initWaline () {
     const waline = Waline.init(Object.assign({
       el: '#waline-wrap',
-      serverURL: 'https://waline-server-b1707omf1-lizbaka.vercel.app/',
+      serverURL: 'https://waline-server-lizbaka.vercel.app/',
       pageview: false,
       dark: 'html[data-theme="dark"]',
       path: window.location.pathname,

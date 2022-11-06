@@ -1,16 +1,4 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>「Luogu4124」 [CQOI2016]手机号码 | lizbaka的博客</title><meta name="author" content="lizbaka"><meta name="copyright" content="lizbaka"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="problem Solution 这里我采用记忆化搜索的形式实现有哪个大佬可以教教我递推板的数位dp啊 搜索的过程中记录是否曾出现8，是否曾出现4，是否曾有连续3个相同数字，搜到底返回就可以了 其实没有太多好写的，数位DP很多都是套模板 那还写来干嘛？ 这道题 从1e101e101e10开始算！ 从1e101e101e10开始算！ 从1e101e101e10开始算！ 这就意味着我们需要特殊处理最高">
-<meta property="og:type" content="article">
-<meta property="og:title" content="「Luogu4124」 [CQOI2016]手机号码">
-<meta property="og:url" content="https://lizbaka.moe/2019/01/13/%E3%80%8CLuogu4124%E3%80%8D-CQOI2016-%E6%89%8B%E6%9C%BA%E5%8F%B7%E7%A0%81/index.html">
-<meta property="og:site_name" content="lizbaka的博客">
-<meta property="og:description" content="problem Solution 这里我采用记忆化搜索的形式实现有哪个大佬可以教教我递推板的数位dp啊 搜索的过程中记录是否曾出现8，是否曾出现4，是否曾有连续3个相同数字，搜到底返回就可以了 其实没有太多好写的，数位DP很多都是套模板 那还写来干嘛？ 这道题 从1e101e101e10开始算！ 从1e101e101e10开始算！ 从1e101e101e10开始算！ 这就意味着我们需要特殊处理最高">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://lizbaka.moe/img/algo.png">
-<meta property="article:published_time" content="2019-01-13T03:14:00.000Z">
-<meta property="article:modified_time" content="2021-12-03T03:13:49.487Z">
-<meta property="article:author" content="lizbaka">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://lizbaka.moe/img/algo.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://lizbaka.moe/2019/01/13/%E3%80%8CLuogu4124%E3%80%8D-CQOI2016-%E6%89%8B%E6%9C%BA%E5%8F%B7%E7%A0%81/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>「Luogu4124」 [CQOI2016]手机号码 | lizbaka的博客</title><meta name="author" content="lizbaka"><meta name="copyright" content="lizbaka"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="problem Solution 这里我采用记忆化搜索的形式实现有哪个大佬可以教教我递推板的数位dp啊 搜索的过程中记录是否曾出现8，是否曾出现4，是否曾有连续3个相同数字，搜到底返回就可以了 其实没有太多好写的，数位DP很多都是套模板 那还写来干嘛？ 这道题 从1e101e101e10开始算！ 从"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://lizbaka.moe/2019/01/13/%E3%80%8CLuogu4124%E3%80%8D-CQOI2016-%E6%89%8B%E6%9C%BA%E5%8F%B7%E7%A0%81/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
   root: '/',
   algolia: undefined,
   localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
@@ -169,7 +157,7 @@
   function initWaline () {
     const waline = Waline.init(Object.assign({
       el: '#waline-wrap',
-      serverURL: 'https://waline-server-b1707omf1-lizbaka.vercel.app/',
+      serverURL: 'https://waline-server-lizbaka.vercel.app/',
       pageview: false,
       dark: 'html[data-theme="dark"]',
       path: window.location.pathname,

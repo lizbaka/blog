@@ -1,16 +1,4 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>「Luogu2014」 选课 | lizbaka的博客</title><meta name="author" content="lizbaka"><meta name="copyright" content="lizbaka"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Problem 树上背包问题的典例，记下来  solution 设dp[x][t]dp[x][t]dp[x][t]表示以xxx为子树，选ttt门课获得的最大学分 设ppp是xxx的子节点数量，cic_ici​是xxx的子节点yiy_iyi​选修的课数 转移方程如下 dp[x][t]&#x3D;max∑i&#x3D;1pci&#x3D;t−1{∑i&#x3D;1pdp[yi][ci]}+pnt[x]dp[x][t]&#x3D;max_{\sum_{">
-<meta property="og:type" content="article">
-<meta property="og:title" content="「Luogu2014」 选课">
-<meta property="og:url" content="https://lizbaka.moe/2019/01/09/%E3%80%8CLuogu2014%E3%80%8D-%E9%80%89%E8%AF%BE/index.html">
-<meta property="og:site_name" content="lizbaka的博客">
-<meta property="og:description" content="Problem 树上背包问题的典例，记下来  solution 设dp[x][t]dp[x][t]dp[x][t]表示以xxx为子树，选ttt门课获得的最大学分 设ppp是xxx的子节点数量，cic_ici​是xxx的子节点yiy_iyi​选修的课数 转移方程如下 dp[x][t]&#x3D;max∑i&#x3D;1pci&#x3D;t−1{∑i&#x3D;1pdp[yi][ci]}+pnt[x]dp[x][t]&#x3D;max_{\sum_{">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://lizbaka.moe/img/algo.png">
-<meta property="article:published_time" content="2019-01-09T03:31:00.000Z">
-<meta property="article:modified_time" content="2021-12-03T03:12:50.287Z">
-<meta property="article:author" content="lizbaka">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://lizbaka.moe/img/algo.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://lizbaka.moe/2019/01/09/%E3%80%8CLuogu2014%E3%80%8D-%E9%80%89%E8%AF%BE/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>「Luogu2014」 选课 | lizbaka的博客</title><meta name="author" content="lizbaka"><meta name="copyright" content="lizbaka"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Problem 树上背包问题的典例，记下来  solution 设dp[x][t]dp[x][t]dp[x][t]表示以xxx为子树，选ttt门课获得的最大学分 设ppp是xxx的子节点数量，cic_ici​是xxx的子节点yiy_iyi​选修的课数 转移方程如下 dp[x][t]&amp;#x3D;max∑i&amp;#x3D;1p"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://lizbaka.moe/2019/01/09/%E3%80%8CLuogu2014%E3%80%8D-%E9%80%89%E8%AF%BE/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
   root: '/',
   algolia: undefined,
   localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
@@ -168,7 +156,7 @@
   function initWaline () {
     const waline = Waline.init(Object.assign({
       el: '#waline-wrap',
-      serverURL: 'https://waline-server-b1707omf1-lizbaka.vercel.app/',
+      serverURL: 'https://waline-server-lizbaka.vercel.app/',
       pageview: false,
       dark: 'html[data-theme="dark"]',
       path: window.location.pathname,

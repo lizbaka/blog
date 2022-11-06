@@ -1,16 +1,4 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>manachaer算法 | lizbaka的博客</title><meta name="author" content="lizbaka"><meta name="copyright" content="lizbaka"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="它可以做什么？ 马拉车manachaer算法可以在O(n)的时间内求出字符串中的最长回文串长度 它是怎么实现的？ 考虑f[i]表示字符串中以第i个字符为中心的最长回文串长度，求f[i]时，若已求出的回文串中末端最靠右者f[maxmid]的末端位置的位置maxright&gt;i，表明i与位置 2maxmid-i关于maxmid对称，则f[i]可以通过f[2maxmid-i]更新，否则f[i]设置为">
-<meta property="og:type" content="article">
-<meta property="og:title" content="manachaer算法">
-<meta property="og:url" content="https://lizbaka.moe/2019/01/09/manachaer%E7%AE%97%E6%B3%95/index.html">
-<meta property="og:site_name" content="lizbaka的博客">
-<meta property="og:description" content="它可以做什么？ 马拉车manachaer算法可以在O(n)的时间内求出字符串中的最长回文串长度 它是怎么实现的？ 考虑f[i]表示字符串中以第i个字符为中心的最长回文串长度，求f[i]时，若已求出的回文串中末端最靠右者f[maxmid]的末端位置的位置maxright&gt;i，表明i与位置 2maxmid-i关于maxmid对称，则f[i]可以通过f[2maxmid-i]更新，否则f[i]设置为">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://lizbaka.moe/img/algo.png">
-<meta property="article:published_time" content="2019-01-09T03:17:00.000Z">
-<meta property="article:modified_time" content="2021-12-03T03:11:45.713Z">
-<meta property="article:author" content="lizbaka">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://lizbaka.moe/img/algo.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://lizbaka.moe/2019/01/09/manachaer%E7%AE%97%E6%B3%95/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>manachaer算法 | lizbaka的博客</title><meta name="author" content="lizbaka"><meta name="copyright" content="lizbaka"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="它可以做什么？ 马拉车manachaer算法可以在O(n)的时间内求出字符串中的最长回文串长度 它是怎么实现的？ 考虑f[i]表示字符串中以第i个字符为中心的最长回文串长度，求f[i]时，若已求出的回文串中末端最靠右者f[maxmid]的末端位置的位置maxright&amp;gt;i，表明i与位置 2ma"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://lizbaka.moe/2019/01/09/manachaer%E7%AE%97%E6%B3%95/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
   root: '/',
   algolia: undefined,
   localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
@@ -168,7 +156,7 @@
   function initWaline () {
     const waline = Waline.init(Object.assign({
       el: '#waline-wrap',
-      serverURL: 'https://waline-server-b1707omf1-lizbaka.vercel.app/',
+      serverURL: 'https://waline-server-lizbaka.vercel.app/',
       pageview: false,
       dark: 'html[data-theme="dark"]',
       path: window.location.pathname,

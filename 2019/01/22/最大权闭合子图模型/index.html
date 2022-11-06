@@ -1,16 +1,4 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>最大权闭合子图模型 | lizbaka的博客</title><meta name="author" content="lizbaka"><meta name="copyright" content="lizbaka"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="最大权闭合子图模型 写了几道这类题，觉得很有意思，有必要总结一下  什么是闭合子图？ 对于一个有向无环图，它的一个闭合子图满足对于其中的任意一个点，从它出发能够到达的所有点都和它在同一个闭合子图中 比如下面这个图 它的所有闭合子图集合为： ∅,{3},{5},{4,5},{3,4,5},{2,3,4,5},{1,2,3,4,5}\emptyset,\{3\},\{5\},\{4,5\},\{3,4">
-<meta property="og:type" content="article">
-<meta property="og:title" content="最大权闭合子图模型">
-<meta property="og:url" content="https://lizbaka.moe/2019/01/22/%E6%9C%80%E5%A4%A7%E6%9D%83%E9%97%AD%E5%90%88%E5%AD%90%E5%9B%BE%E6%A8%A1%E5%9E%8B/index.html">
-<meta property="og:site_name" content="lizbaka的博客">
-<meta property="og:description" content="最大权闭合子图模型 写了几道这类题，觉得很有意思，有必要总结一下  什么是闭合子图？ 对于一个有向无环图，它的一个闭合子图满足对于其中的任意一个点，从它出发能够到达的所有点都和它在同一个闭合子图中 比如下面这个图 它的所有闭合子图集合为： ∅,{3},{5},{4,5},{3,4,5},{2,3,4,5},{1,2,3,4,5}\emptyset,\{3\},\{5\},\{4,5\},\{3,4">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://lizbaka.moe/img/algo.png">
-<meta property="article:published_time" content="2019-01-21T23:44:00.000Z">
-<meta property="article:modified_time" content="2021-12-03T03:14:32.822Z">
-<meta property="article:author" content="lizbaka">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://lizbaka.moe/img/algo.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://lizbaka.moe/2019/01/22/%E6%9C%80%E5%A4%A7%E6%9D%83%E9%97%AD%E5%90%88%E5%AD%90%E5%9B%BE%E6%A8%A1%E5%9E%8B/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>最大权闭合子图模型 | lizbaka的博客</title><meta name="author" content="lizbaka"><meta name="copyright" content="lizbaka"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="最大权闭合子图模型 写了几道这类题，觉得很有意思，有必要总结一下  什么是闭合子图？ 对于一个有向无环图，它的一个闭合子图满足对于其中的任意一个点，从它出发能够到达的所有点都和它在同一个闭合子图中 比如下面这个图 它的所有闭合子图集合为： ∅,{3},{5},{4,5},{3,4,5},{2,3,4"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://lizbaka.moe/2019/01/22/%E6%9C%80%E5%A4%A7%E6%9D%83%E9%97%AD%E5%90%88%E5%AD%90%E5%9B%BE%E6%A8%A1%E5%9E%8B/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
   root: '/',
   algolia: undefined,
   localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
@@ -210,7 +198,7 @@
   function initWaline () {
     const waline = Waline.init(Object.assign({
       el: '#waline-wrap',
-      serverURL: 'https://waline-server-b1707omf1-lizbaka.vercel.app/',
+      serverURL: 'https://waline-server-lizbaka.vercel.app/',
       pageview: false,
       dark: 'html[data-theme="dark"]',
       path: window.location.pathname,

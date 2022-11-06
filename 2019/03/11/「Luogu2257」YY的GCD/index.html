@@ -1,16 +1,4 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>「Luogu2257」YY的GCD | lizbaka的博客</title><meta name="author" content="lizbaka"><meta name="copyright" content="lizbaka"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="「Luogu2257」YY的GCD 蒟蒻的第一道莫反 跟着题解推的式子，但还是记录一下过程吧 本文可能在一定程度上存在谬误，请谨慎分析 若发现文中有错误，如您愿意，恳请您向我指出，不胜感激  problem Solution 题目要求： ans&#x3D;∑i&#x3D;1N∑j&#x3D;1M[gcd(i,j)∈prime]ans&#x3D;\sum_{i&#x3D;1}^N\sum_{j&#x3D;1}^M[gcd(i,j)\in prime] ans">
-<meta property="og:type" content="article">
-<meta property="og:title" content="「Luogu2257」YY的GCD">
-<meta property="og:url" content="https://lizbaka.moe/2019/03/11/%E3%80%8CLuogu2257%E3%80%8DYY%E7%9A%84GCD/index.html">
-<meta property="og:site_name" content="lizbaka的博客">
-<meta property="og:description" content="「Luogu2257」YY的GCD 蒟蒻的第一道莫反 跟着题解推的式子，但还是记录一下过程吧 本文可能在一定程度上存在谬误，请谨慎分析 若发现文中有错误，如您愿意，恳请您向我指出，不胜感激  problem Solution 题目要求： ans&#x3D;∑i&#x3D;1N∑j&#x3D;1M[gcd(i,j)∈prime]ans&#x3D;\sum_{i&#x3D;1}^N\sum_{j&#x3D;1}^M[gcd(i,j)\in prime] ans">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://lizbaka.moe/img/algo.png">
-<meta property="article:published_time" content="2019-03-10T18:12:00.000Z">
-<meta property="article:modified_time" content="2021-12-03T03:12:56.351Z">
-<meta property="article:author" content="lizbaka">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://lizbaka.moe/img/algo.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://lizbaka.moe/2019/03/11/%E3%80%8CLuogu2257%E3%80%8DYY%E7%9A%84GCD/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>「Luogu2257」YY的GCD | lizbaka的博客</title><meta name="author" content="lizbaka"><meta name="copyright" content="lizbaka"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="「Luogu2257」YY的GCD 蒟蒻的第一道莫反 跟着题解推的式子，但还是记录一下过程吧 本文可能在一定程度上存在谬误，请谨慎分析 若发现文中有错误，如您愿意，恳请您向我指出，不胜感激  problem Solution 题目要求： ans&amp;#x3D;∑i&amp;#x3D;1N∑j&amp;#x3D;1M[gcd(i,j)∈prime]a"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://lizbaka.moe/2019/03/11/%E3%80%8CLuogu2257%E3%80%8DYY%E7%9A%84GCD/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
   root: '/',
   algolia: undefined,
   localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
@@ -195,7 +183,7 @@ M1001 80h400000v40h-400000z"/></svg></span></span></span><span class="vlist-s">�
   function initWaline () {
     const waline = Waline.init(Object.assign({
       el: '#waline-wrap',
-      serverURL: 'https://waline-server-b1707omf1-lizbaka.vercel.app/',
+      serverURL: 'https://waline-server-lizbaka.vercel.app/',
       pageview: false,
       dark: 'html[data-theme="dark"]',
       path: window.location.pathname,

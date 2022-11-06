@@ -1,16 +1,4 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>莫比乌斯反演专题学习笔记 | lizbaka的博客</title><meta name="author" content="lizbaka"><meta name="copyright" content="lizbaka"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="莫比乌斯反演专题学习笔记 本文记录一些和莫反有关的内容的笔记 可能存在诸多谬误，阅读时请谨慎分析 若发现文中有谬误，如您愿意，恳请您向我指出，不胜感激！  为什么要学莫比乌斯反演？ 解决一类与狄利克雷卷积、整除、积性函数有关的问题，通过莫比乌斯反演，往往可以将复杂度优化到可接受的范围内  积性函数 对于任意互质整数a,ba,ba,b有f(ab)&#x3D;f(a)f(b)f(ab)&#x3D;f(a)f(b)f(ab">
-<meta property="og:type" content="article">
-<meta property="og:title" content="莫比乌斯反演专题学习笔记">
-<meta property="og:url" content="https://lizbaka.moe/2019/03/11/%E8%8E%AB%E6%AF%94%E4%B9%8C%E6%96%AF%E5%8F%8D%E6%BC%94%E4%B8%93%E9%A2%98%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
-<meta property="og:site_name" content="lizbaka的博客">
-<meta property="og:description" content="莫比乌斯反演专题学习笔记 本文记录一些和莫反有关的内容的笔记 可能存在诸多谬误，阅读时请谨慎分析 若发现文中有谬误，如您愿意，恳请您向我指出，不胜感激！  为什么要学莫比乌斯反演？ 解决一类与狄利克雷卷积、整除、积性函数有关的问题，通过莫比乌斯反演，往往可以将复杂度优化到可接受的范围内  积性函数 对于任意互质整数a,ba,ba,b有f(ab)&#x3D;f(a)f(b)f(ab)&#x3D;f(a)f(b)f(ab">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://lizbaka.moe/img/algo.png">
-<meta property="article:published_time" content="2019-03-10T19:08:00.000Z">
-<meta property="article:modified_time" content="2021-12-03T03:14:44.789Z">
-<meta property="article:author" content="lizbaka">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://lizbaka.moe/img/algo.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://lizbaka.moe/2019/03/11/%E8%8E%AB%E6%AF%94%E4%B9%8C%E6%96%AF%E5%8F%8D%E6%BC%94%E4%B8%93%E9%A2%98%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>莫比乌斯反演专题学习笔记 | lizbaka的博客</title><meta name="author" content="lizbaka"><meta name="copyright" content="lizbaka"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="莫比乌斯反演专题学习笔记 本文记录一些和莫反有关的内容的笔记 可能存在诸多谬误，阅读时请谨慎分析 若发现文中有谬误，如您愿意，恳请您向我指出，不胜感激！  为什么要学莫比乌斯反演？ 解决一类与狄利克雷卷积、整除、积性函数有关的问题，通过莫比乌斯反演，往往可以将复杂度优化到可接受的范围内  积性函数"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://lizbaka.moe/2019/03/11/%E8%8E%AB%E6%AF%94%E4%B9%8C%E6%96%AF%E5%8F%8D%E6%BC%94%E4%B8%93%E9%A2%98%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
   root: '/',
   algolia: undefined,
   localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
@@ -258,7 +246,7 @@ M834 80h400000v40h-400000z"/></svg></span></span></span><span class="vlist-s">�
   function initWaline () {
     const waline = Waline.init(Object.assign({
       el: '#waline-wrap',
-      serverURL: 'https://waline-server-b1707omf1-lizbaka.vercel.app/',
+      serverURL: 'https://waline-server-lizbaka.vercel.app/',
       pageview: false,
       dark: 'html[data-theme="dark"]',
       path: window.location.pathname,

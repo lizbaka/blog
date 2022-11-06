@@ -1,16 +1,4 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>「HDU1521」排列组合 | lizbaka的博客</title><meta name="author" content="lizbaka"><meta name="copyright" content="lizbaka"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="「HDU1521」排列组合 problem Solution 生成函数入门题 第iii种物品有nin_ini​个，构造指数型生成函数 Ge(x)&#x3D;∑k&#x3D;1min(ni,m)xkk!G_e(x)&#x3D;\sum_{k&#x3D;1}^{min(n_i,m)}\frac{x^k}{k!} Ge​(x)&#x3D;k&#x3D;1∑min(ni​,m)​k!xk​ 把所有物品的生成函数乘起来 设最后得到的多项式的mmm次项为ama_mam">
-<meta property="og:type" content="article">
-<meta property="og:title" content="「HDU1521」排列组合">
-<meta property="og:url" content="https://lizbaka.moe/2019/04/01/%E3%80%8CHDU1521%E3%80%8D%E6%8E%92%E5%88%97%E7%BB%84%E5%90%88/index.html">
-<meta property="og:site_name" content="lizbaka的博客">
-<meta property="og:description" content="「HDU1521」排列组合 problem Solution 生成函数入门题 第iii种物品有nin_ini​个，构造指数型生成函数 Ge(x)&#x3D;∑k&#x3D;1min(ni,m)xkk!G_e(x)&#x3D;\sum_{k&#x3D;1}^{min(n_i,m)}\frac{x^k}{k!} Ge​(x)&#x3D;k&#x3D;1∑min(ni​,m)​k!xk​ 把所有物品的生成函数乘起来 设最后得到的多项式的mmm次项为ama_mam">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://lizbaka.moe/img/algo.png">
-<meta property="article:published_time" content="2019-03-31T18:28:00.000Z">
-<meta property="article:modified_time" content="2021-12-03T03:12:37.917Z">
-<meta property="article:author" content="lizbaka">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://lizbaka.moe/img/algo.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://lizbaka.moe/2019/04/01/%E3%80%8CHDU1521%E3%80%8D%E6%8E%92%E5%88%97%E7%BB%84%E5%90%88/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>「HDU1521」排列组合 | lizbaka的博客</title><meta name="author" content="lizbaka"><meta name="copyright" content="lizbaka"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="「HDU1521」排列组合 problem Solution 生成函数入门题 第iii种物品有nin_ini​个，构造指数型生成函数 Ge(x)&amp;#x3D;∑k&amp;#x3D;1min(ni,m)xkk!G_e(x)&amp;#x3D;\sum_{k&amp;#x3D;1}^{min(n_i,m)}\frac{x^k}{k!} Ge​(x)&amp;#x3D;k&amp;#x3D;1∑min("><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://lizbaka.moe/2019/04/01/%E3%80%8CHDU1521%E3%80%8D%E6%8E%92%E5%88%97%E7%BB%84%E5%90%88/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
   root: '/',
   algolia: undefined,
   localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
@@ -170,7 +158,7 @@
   function initWaline () {
     const waline = Waline.init(Object.assign({
       el: '#waline-wrap',
-      serverURL: 'https://waline-server-b1707omf1-lizbaka.vercel.app/',
+      serverURL: 'https://waline-server-lizbaka.vercel.app/',
       pageview: false,
       dark: 'html[data-theme="dark"]',
       path: window.location.pathname,

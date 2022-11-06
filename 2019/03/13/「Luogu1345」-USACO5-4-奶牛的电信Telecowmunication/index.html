@@ -1,16 +1,4 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>「Luogu1345」[USACO5.4]奶牛的电信Telecowmunication | lizbaka的博客</title><meta name="author" content="lizbaka"><meta name="copyright" content="lizbaka"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="「Luogu1345」[USACO5.4]奶牛的电信Telecowmunication problem Solution 题目要求找到最小数量的若干个点，使得这些点被去掉之后，点c1c_1c1​和c2c_2c2​不连通。 与最小割模型十分类似，考虑转化  约定(u,v,f)(u,v,f)(u,v,f)表示uuu向vvv连边，流量为fff，SSS为源，TTT为汇 先说模型 对于每个点uuu，将其拆成">
-<meta property="og:type" content="article">
-<meta property="og:title" content="「Luogu1345」[USACO5.4]奶牛的电信Telecowmunication">
-<meta property="og:url" content="https://lizbaka.moe/2019/03/13/%E3%80%8CLuogu1345%E3%80%8D-USACO5-4-%E5%A5%B6%E7%89%9B%E7%9A%84%E7%94%B5%E4%BF%A1Telecowmunication/index.html">
-<meta property="og:site_name" content="lizbaka的博客">
-<meta property="og:description" content="「Luogu1345」[USACO5.4]奶牛的电信Telecowmunication problem Solution 题目要求找到最小数量的若干个点，使得这些点被去掉之后，点c1c_1c1​和c2c_2c2​不连通。 与最小割模型十分类似，考虑转化  约定(u,v,f)(u,v,f)(u,v,f)表示uuu向vvv连边，流量为fff，SSS为源，TTT为汇 先说模型 对于每个点uuu，将其拆成">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://lizbaka.moe/img/algo.png">
-<meta property="article:published_time" content="2019-03-12T19:03:00.000Z">
-<meta property="article:modified_time" content="2021-12-03T03:12:44.031Z">
-<meta property="article:author" content="lizbaka">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://lizbaka.moe/img/algo.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://lizbaka.moe/2019/03/13/%E3%80%8CLuogu1345%E3%80%8D-USACO5-4-%E5%A5%B6%E7%89%9B%E7%9A%84%E7%94%B5%E4%BF%A1Telecowmunication/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>「Luogu1345」[USACO5.4]奶牛的电信Telecowmunication | lizbaka的博客</title><meta name="author" content="lizbaka"><meta name="copyright" content="lizbaka"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="「Luogu1345」[USACO5.4]奶牛的电信Telecowmunication problem Solution 题目要求找到最小数量的若干个点，使得这些点被去掉之后，点c1c_1c1​和c2c_2c2​不连通。 与最小割模型十分类似，考虑转化  约定(u,v,f)(u,v,f)(u,v,f"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://lizbaka.moe/2019/03/13/%E3%80%8CLuogu1345%E3%80%8D-USACO5-4-%E5%A5%B6%E7%89%9B%E7%9A%84%E7%94%B5%E4%BF%A1Telecowmunication/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
   root: '/',
   algolia: undefined,
   localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
@@ -176,7 +164,7 @@
   function initWaline () {
     const waline = Waline.init(Object.assign({
       el: '#waline-wrap',
-      serverURL: 'https://waline-server-b1707omf1-lizbaka.vercel.app/',
+      serverURL: 'https://waline-server-lizbaka.vercel.app/',
       pageview: false,
       dark: 'html[data-theme="dark"]',
       path: window.location.pathname,

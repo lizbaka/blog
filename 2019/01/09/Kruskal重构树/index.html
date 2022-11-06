@@ -1,16 +1,4 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Kruskal重构树 | lizbaka的博客</title><meta name="author" content="lizbaka"><meta name="copyright" content="lizbaka"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="能用来做什么？ Kruskal重构树可以在线地求解带权无向图上，两点间所有路径中，权值最大（小）的边权值最小（大）的问题一看就很最小生成树 怎么做？ 以最小生成树为例 普通的Kruskal求最小生成树，是在加边的过程中，利用冰碴鸡并查集检查是否会生成环，直接合并并查集并对边的端点u,v直接连边 而生成kruskal重构树，在加边过程中，则会进行如下操作： 建立一个新的点x，点权为边的权值，将u,v">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Kruskal重构树">
-<meta property="og:url" content="https://lizbaka.moe/2019/01/09/Kruskal%E9%87%8D%E6%9E%84%E6%A0%91/index.html">
-<meta property="og:site_name" content="lizbaka的博客">
-<meta property="og:description" content="能用来做什么？ Kruskal重构树可以在线地求解带权无向图上，两点间所有路径中，权值最大（小）的边权值最小（大）的问题一看就很最小生成树 怎么做？ 以最小生成树为例 普通的Kruskal求最小生成树，是在加边的过程中，利用冰碴鸡并查集检查是否会生成环，直接合并并查集并对边的端点u,v直接连边 而生成kruskal重构树，在加边过程中，则会进行如下操作： 建立一个新的点x，点权为边的权值，将u,v">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://lizbaka.moe/img/algo.png">
-<meta property="article:published_time" content="2019-01-09T03:05:00.000Z">
-<meta property="article:modified_time" content="2021-12-03T03:11:08.377Z">
-<meta property="article:author" content="lizbaka">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://lizbaka.moe/img/algo.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://lizbaka.moe/2019/01/09/Kruskal%E9%87%8D%E6%9E%84%E6%A0%91/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Kruskal重构树 | lizbaka的博客</title><meta name="author" content="lizbaka"><meta name="copyright" content="lizbaka"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="能用来做什么？ Kruskal重构树可以在线地求解带权无向图上，两点间所有路径中，权值最大（小）的边权值最小（大）的问题一看就很最小生成树 怎么做？ 以最小生成树为例 普通的Kruskal求最小生成树，是在加边的过程中，利用冰碴鸡并查集检查是否会生成环，直接合并并查集并对边的端点u,v直接连边 而生"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://lizbaka.moe/2019/01/09/Kruskal%E9%87%8D%E6%9E%84%E6%A0%91/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
   root: '/',
   algolia: undefined,
   localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
@@ -204,7 +192,7 @@
   function initWaline () {
     const waline = Waline.init(Object.assign({
       el: '#waline-wrap',
-      serverURL: 'https://waline-server-b1707omf1-lizbaka.vercel.app/',
+      serverURL: 'https://waline-server-lizbaka.vercel.app/',
       pageview: false,
       dark: 'html[data-theme="dark"]',
       path: window.location.pathname,

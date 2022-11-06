@@ -1,16 +1,4 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>「POJ1509」 Glass Beads 最小表示法模板 | lizbaka的博客</title><meta name="author" content="lizbaka"><meta name="copyright" content="lizbaka"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="vjudge 题目大意TLDR 有$n$个首尾相接的字符串，每个字符串均由小写字母构成，要求在环上找到一个断点，使得断开后所得的字符串字典序最小。 若有多处断点断开所得的字符串相同，则输出位置最小的断点 Solution 应该就是一个最小表示法的板子题，不多写了 环还是经典的双倍长度处理方法  #include &lt;cstdio&gt; #include &lt;algorithm&gt; #">
-<meta property="og:type" content="article">
-<meta property="og:title" content="「POJ1509」 Glass Beads 最小表示法模板">
-<meta property="og:url" content="https://lizbaka.moe/2019/01/12/%E3%80%8CPOJ1509%E3%80%8D-Glass-Beads-%E6%9C%80%E5%B0%8F%E8%A1%A8%E7%A4%BA%E6%B3%95%E6%A8%A1%E6%9D%BF/index.html">
-<meta property="og:site_name" content="lizbaka的博客">
-<meta property="og:description" content="vjudge 题目大意TLDR 有$n$个首尾相接的字符串，每个字符串均由小写字母构成，要求在环上找到一个断点，使得断开后所得的字符串字典序最小。 若有多处断点断开所得的字符串相同，则输出位置最小的断点 Solution 应该就是一个最小表示法的板子题，不多写了 环还是经典的双倍长度处理方法  #include &lt;cstdio&gt; #include &lt;algorithm&gt; #">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://lizbaka.moe/img/algo.png">
-<meta property="article:published_time" content="2019-01-11T20:20:00.000Z">
-<meta property="article:modified_time" content="2021-12-03T03:14:11.340Z">
-<meta property="article:author" content="lizbaka">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://lizbaka.moe/img/algo.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://lizbaka.moe/2019/01/12/%E3%80%8CPOJ1509%E3%80%8D-Glass-Beads-%E6%9C%80%E5%B0%8F%E8%A1%A8%E7%A4%BA%E6%B3%95%E6%A8%A1%E6%9D%BF/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>「POJ1509」 Glass Beads 最小表示法模板 | lizbaka的博客</title><meta name="author" content="lizbaka"><meta name="copyright" content="lizbaka"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="vjudge 题目大意TLDR 有$n$个首尾相接的字符串，每个字符串均由小写字母构成，要求在环上找到一个断点，使得断开后所得的字符串字典序最小。 若有多处断点断开所得的字符串相同，则输出位置最小的断点 Solution 应该就是一个最小表示法的板子题，不多写了 环还是经典的双倍长度处理方法  #i"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://lizbaka.moe/2019/01/12/%E3%80%8CPOJ1509%E3%80%8D-Glass-Beads-%E6%9C%80%E5%B0%8F%E8%A1%A8%E7%A4%BA%E6%B3%95%E6%A8%A1%E6%9D%BF/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
   root: '/',
   algolia: undefined,
   localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
@@ -204,7 +192,7 @@ Work();<br>
   function initWaline () {
     const waline = Waline.init(Object.assign({
       el: '#waline-wrap',
-      serverURL: 'https://waline-server-b1707omf1-lizbaka.vercel.app/',
+      serverURL: 'https://waline-server-lizbaka.vercel.app/',
       pageview: false,
       dark: 'html[data-theme="dark"]',
       path: window.location.pathname,

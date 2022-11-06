@@ -1,16 +1,4 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>「Luogu5395」【模板】第二类斯特林数·行 | lizbaka的博客</title><meta name="author" content="lizbaka"><meta name="copyright" content="lizbaka"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="「Luogu5395」【模板】第二类斯特林数·行 problem Solution 一句话题意：求i&#x3D;0n{ni}_{i&#x3D;0}^n\begin{Bmatrix}n\\i\end{Bmatrix}i&#x3D;0n​{ni​} 根据第二类斯特林数的展开式，有 {nk}&#x3D;1k!∑i&#x3D;0k(−1)i(ki)(k−i)n\begin{Bmatrix}n\\k\end{Bmatrix}&#x3D;\frac{1}{k!}\su">
-<meta property="og:type" content="article">
-<meta property="og:title" content="「Luogu5395」【模板】第二类斯特林数·行">
-<meta property="og:url" content="https://lizbaka.moe/2019/08/17/%E3%80%8CLuogu5395%E3%80%8D%E3%80%90%E6%A8%A1%E6%9D%BF%E3%80%91%E7%AC%AC%E4%BA%8C%E7%B1%BB%E6%96%AF%E7%89%B9%E6%9E%97%E6%95%B0%C2%B7%E8%A1%8C/index.html">
-<meta property="og:site_name" content="lizbaka的博客">
-<meta property="og:description" content="「Luogu5395」【模板】第二类斯特林数·行 problem Solution 一句话题意：求i&#x3D;0n{ni}_{i&#x3D;0}^n\begin{Bmatrix}n\\i\end{Bmatrix}i&#x3D;0n​{ni​} 根据第二类斯特林数的展开式，有 {nk}&#x3D;1k!∑i&#x3D;0k(−1)i(ki)(k−i)n\begin{Bmatrix}n\\k\end{Bmatrix}&#x3D;\frac{1}{k!}\su">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://lizbaka.moe/img/algo.png">
-<meta property="article:published_time" content="2019-08-17T06:52:00.000Z">
-<meta property="article:modified_time" content="2021-12-03T03:14:05.327Z">
-<meta property="article:author" content="lizbaka">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://lizbaka.moe/img/algo.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://lizbaka.moe/2019/08/17/%E3%80%8CLuogu5395%E3%80%8D%E3%80%90%E6%A8%A1%E6%9D%BF%E3%80%91%E7%AC%AC%E4%BA%8C%E7%B1%BB%E6%96%AF%E7%89%B9%E6%9E%97%E6%95%B0%C2%B7%E8%A1%8C/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>「Luogu5395」【模板】第二类斯特林数·行 | lizbaka的博客</title><meta name="author" content="lizbaka"><meta name="copyright" content="lizbaka"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="「Luogu5395」【模板】第二类斯特林数·行 problem Solution 一句话题意：求i&amp;#x3D;0n{ni}_{i&amp;#x3D;0}^n\begin{Bmatrix}n\\i\end{Bmatrix}i&amp;#x3D;0n​{ni​} 根据第二类斯特林数的展开式，有 {nk}&amp;#x3D;1k!∑i&amp;#x3D;0k(−1)i(ki)(k−i"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://lizbaka.moe/2019/08/17/%E3%80%8CLuogu5395%E3%80%8D%E3%80%90%E6%A8%A1%E6%9D%BF%E3%80%91%E7%AC%AC%E4%BA%8C%E7%B1%BB%E6%96%AF%E7%89%B9%E6%9E%97%E6%95%B0%C2%B7%E8%A1%8C/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
   root: '/',
   algolia: undefined,
   localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
@@ -180,7 +168,7 @@
   function initWaline () {
     const waline = Waline.init(Object.assign({
       el: '#waline-wrap',
-      serverURL: 'https://waline-server-b1707omf1-lizbaka.vercel.app/',
+      serverURL: 'https://waline-server-lizbaka.vercel.app/',
       pageview: false,
       dark: 'html[data-theme="dark"]',
       path: window.location.pathname,
