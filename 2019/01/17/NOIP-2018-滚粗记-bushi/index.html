@@ -316,7 +316,7 @@ sh*t真的要凉了</p>
   const init = () => {
     twikoo.init(Object.assign({
       el: '#twikoo-wrap',
-      envId: 'https://twikoo-lizbaka.vercel.app/',
+      envId: 'https://twikoo-lizbakas-projects.vercel.app/',
       region: '',
       onCommentLoaded: () => {
         btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
@@ -333,7 +333,7 @@ sh*t真的要凉了</p>
     const countELement = document.getElementById('twikoo-count')
     if(!countELement) return
     twikoo.getCommentsCount({
-      envId: 'https://twikoo-lizbaka.vercel.app/',
+      envId: 'https://twikoo-lizbakas-projects.vercel.app/',
       region: '',
       urls: [window.location.pathname],
       includeReply: false
