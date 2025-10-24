@@ -1,0 +1,408 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>【论文阅读】VisionDroid多智能体UI自动化bug检测框架 | lizbaka的星空小屋</title><meta name="author" content="lizbaka"><meta name="copyright" content="lizbaka"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="VisionDroid 是一个移动APP上的功能性Bug自动化检测框架"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://blog.lizbaka.moe/2025/10/25/paper-journal-tse-LiuLCWCWWHW25/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '【论文阅读】VisionDroid多智能体UI自动化bug检测框架',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-10-25 03:26:54'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.png" onerror="onerror=null;src='/img/erroravatar.png'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">83</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">16</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fas fa-comment"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/study.png')"><nav id="nav"><span id="blog-info"><a href="/" title="lizbaka的星空小屋"><span class="site-name">lizbaka的星空小屋</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fas fa-comment"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">【论文阅读】VisionDroid多智能体UI自动化bug检测框架</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-10-24T18:08:43.639Z" title="发表于 2025-10-25 02:08:43">2025-10-25</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-10-24T19:26:54.363Z" title="更新于 2025-10-25 03:26:54">2025-10-25</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/">论文阅读</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/">软件工程</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2.3k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>7分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="【论文阅读】VisionDroid多智能体UI自动化bug检测框架"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><blockquote>
+<p>原文：<a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/document/11181197">https://ieeexplore.ieee.org/document/11181197</a></p>
+<p>最近回来做一些UI自动化相关的工作了，在狠狠地薅王俊杰老师组的羊毛</p>
+</blockquote>
+<p>一个移动APP上的功能性Bug自动化检测框架VisionDroid</p>
+<p>自动化探索、多智能体、视觉驱动</p>
+<h1>动机</h1>
+<ul>
+<li>由于缺乏明确的<strong>测试预言</strong>，现有的GUI测试方法难以有效检测功能性bug，多数局限在崩溃类bug上。</li>
+<li>许多功能性bug会在GUI上有明显的表现，但通过GUI识别这些bug需要在GUI本身乃至<strong>GUI之间的转换</strong>上进行逻辑推理，同时需要一定的<strong>背景知识</strong>。现有的方法缺乏这样的能力。</li>
+</ul>
+<h1>3个挑战</h1>
+<ol>
+<li>
+<p>视觉与文字模态输入的对齐</p>
+<p>一方面，如果直接把图片塞给模型，MLLM可能会忽略很多细节；另一方面，MLLM的输出局限在文本模态，需要考虑如何将文本输出与GUI操作对齐</p>
+</li>
+<li>
+<p>功能意图层面导向的应用探索</p>
+<p>动作层面的信息对MLLM来讲太过细节且语义不够丰富，使其无法关注到功能层面的语义，需要理解动作对应的功能意图</p>
+</li>
+<li>
+<p>测试预言推理</p>
+<p>自动化应用探索检测功能性bug难以预先定义测试预言。</p>
+</li>
+</ol>
+<h1>方法</h1>
+<p>VisionDroid由三个Agent组成，分别是视觉驱动的探索智能体Explorer，监控智能体Monitor和Bug检测智能体Detector</p>
+<p><img src="/2025/10/25/paper-journal-tse-LiuLCWCWWHW25/image%201-1761330562376-1.png" alt="image.png"></p>
+<h2 id="视觉驱动的探索智能体Explorer">视觉驱动的探索智能体Explorer</h2>
+<p>负责基于APP信息执行实际探索</p>
+<h3 id="图像与文本模态对齐">图像与文本模态对齐</h3>
+<p>通过图像标注，将控件与文本上线对应起来</p>
+<p>文本上下文：</p>
+<ul>
+<li>全局信息：从应用中获取App名字、Activity名字</li>
+<li>控件信息：从UI层次树中文本、resource-id、交互方法</li>
+</ul>
+<p>图像标注：</p>
+<ul>
+<li>在UI截图上画框，<strong>通过不同颜色的框</strong>来标识控件交互方法</li>
+</ul>
+<p><img src="/2025/10/25/paper-journal-tse-LiuLCWCWWHW25/image%202-1761330562376-2.png" alt="image.png"></p>
+<ul>
+<li>通过编号将控件与文本信息关联起来</li>
+</ul>
+<div class="note success flat"><p>这个用不同颜色表示交互方法的技巧值得参考。</p>
+</div>
+<div class="note primary flat"><ul>
+<li>GUI控件的描述信息提取比较简单，没有对控件功能做进一步推理，功能理解直接交给MLLM隐式的推理了</li>
+<li>Activity名字、控件描述信息的提取依赖于代码，虽然可以用ADB工具获取，但是也算是灰盒甚至白盒测试了。不适用于游戏等纯黑盒场景，在现代APP的各种非原生开发技术栈上的泛化性也有疑问。</li>
+</ul>
+</div>
+<h3 id="Prompting方法">Prompting方法</h3>
+<p><img src="/2025/10/25/paper-journal-tse-LiuLCWCWWHW25/image%203-1761330562376-3.png" alt="image.png"></p>
+<p>文本模态输入：</p>
+<ol>
+<li>APP和GUI信息</li>
+<li>历史操作信息</li>
+<li>来自BugDetector的探索优化反馈</li>
+<li>图像标记解释</li>
+</ol>
+<p>图像模态输入：</p>
+<ol>
+<li>历史操作及对应功能，截图中用不同颜色的框标记了操作的控件</li>
+<li>当前页面，截图中用不同颜色的标记了所有可操作控件</li>
+</ol>
+<p>要求输出：</p>
+<ol>
+<li>动作指令（e.g. 点击/长按/勾选/滑动某一组件，输入文本以及输入文本后的操作）</li>
+</ol>
+<div class="note success flat"><p>这种将多个界面拼起来的历史信息提供方式很有意思，同时也能减少token量，值得参考</p>
+</div>
+<div class="note primary flat"><p>动作的目标是控件。界面滑动这种怎么算？没有说清楚。</p>
+</div>
+<h2 id="监控智能体Monitor">监控智能体Monitor</h2>
+<p>负责</p>
+<ul>
+<li>总揽测试过程</li>
+<li>总结探索历史中的步骤</li>
+<li>在合适的时候调用Detector检测Bug</li>
+</ul>
+<h3 id="操作历史记录">操作历史记录</h3>
+<p>记录UI树、界面截图以及相关的操作，抽象出操作/GUI对应的应用功能。</p>
+<p>在图像上以功能和对应截图的形式记录历史，截图中用不同颜色的框标记操作的控件</p>
+<p><img src="/2025/10/25/paper-journal-tse-LiuLCWCWWHW25/image%204-1761330562376-4.png" alt="image.png"></p>
+<p>为避免Token超限而进行的信息压缩策略：</p>
+<ol>
+<li>使用编号标识控件</li>
+<li>只记录重要/信息量大的交互步骤</li>
+</ol>
+<div class="note primary flat"><p>怎么界定某个步骤值得记录？没有说的很清楚</p>
+</div>
+<h3 id="bugDetector触发">bugDetector触发</h3>
+<p>实时检测一个功能是否已经完成测试。如果已经完成，则暂停探索，调用Detector检查操作历史，检测此前测试的功能中是否存在bug。</p>
+<div class="note primary flat"><p>如果bug发生在被过滤掉的交互步骤中呢？</p>
+</div>
+<h3 id="Prompt方法">Prompt方法</h3>
+<p><img src="/2025/10/25/paper-journal-tse-LiuLCWCWWHW25/image%205-1761330562376-5.png" alt="image.png"></p>
+<p>文本模态输入：</p>
+<ol>
+<li>之前测试的功能和对应的动作</li>
+<li>测试历史</li>
+<li>图像标记解释</li>
+</ol>
+<p>图像模态输入：</p>
+<ol>
+<li>历史操作及对应功能，截图中用不同颜色的框标记了操作的控件</li>
+<li>当前页面，截图中用不同颜色的标记了所有可操作控件</li>
+</ol>
+<p>要求输出：</p>
+<ol>
+<li>GUI描述</li>
+<li>描述当前正在测试的功能，同时检测现在是不是开始测试一个新功能了。</li>
+</ol>
+<h2 id="Bug检测智能体Detector">Bug检测智能体Detector</h2>
+<p>负责</p>
+<ul>
+<li>检测执行序列中存在的逻辑问题</li>
+<li>检测执行序列中存在的错误动作，给Explorer提供探索优化建议</li>
+</ul>
+<h3 id="功能驱动的CoT">功能驱动的CoT</h3>
+<p>提示模型一步步分析，减轻幻觉影响</p>
+<p>分析步骤：</p>
+<ol>
+<li>识别当前正在测试的功能，输出功能名称和描述，帮助模型理解功能</li>
+<li>分析期望操作路径：根据功能描述，推测期望的操作路径，作为评价基准</li>
+<li>分析实际操作路径：检查实际进行操作路径，与期望路径做比对</li>
+</ol>
+<h3 id="ICL">ICL</h3>
+<p>利用开源移动app的issue构建样例数据库。</p>
+<p>对于每个sample，结构化记录bug对应的功能、触发bug的操作序列、与期望行为的对比，帮助模型理解什么是功能性bug。</p>
+<p>最终采集了200个高质量bug条目。</p>
+<blockquote>
+<p>实验时，在数据库中排除待测APP，防止数据泄露</p>
+</blockquote>
+<p>实践中，样例数据库可以动态扩充，新发现的bug经过人工检验后可以自动结构化并加入到数据库中。</p>
+<p>通过比对Activity名字来检索样例，基于Word2Vec+余弦相似度检索。</p>
+<div class="note primary flat"><p>Activity名字语义深度可能不太够，比较依赖开发者的命名习惯了，不过这个做法是follow之前的工作做的。</p>
+</div>
+<h3 id="Prompt方法-2">Prompt方法</h3>
+<p><img src="/2025/10/25/paper-journal-tse-LiuLCWCWWHW25/image%206-1761330562376-6.png" alt="image.png"></p>
+<p>文本模态输入：</p>
+<ol>
+<li>Bug示例</li>
+<li>CoT指令</li>
+<li>图像标记解释</li>
+</ol>
+<p>图像模态输入：</p>
+<ol>
+<li>历史操作及对应功能，截图中用不同颜色的框标记了操作的控件</li>
+<li>当前页面</li>
+</ol>
+<p>要求输出：</p>
+<ul>
+<li>应用截图变化序列是否符合预期</li>
+<li>检测某个页面/某个操作会触发bug（反馈给Explorer）</li>
+<li>检测Explorer做出的错误操作（反馈给Explorer）</li>
+</ul>
+<h3 id="流程示例">流程示例</h3>
+<p><img src="/2025/10/25/paper-journal-tse-LiuLCWCWWHW25/image%207-1761330562376-7.png" alt="image.png"></p>
+<h2 id="其他实现细节">其他实现细节</h2>
+<p>采用GPT-4V作为MLLM</p>
+<p>检索示例k=4（有超参实验）</p>
+<h1>实验</h1>
+<h2 id="RQ">RQ</h2>
+<p>RQ1：覆盖率、bug检测性能</p>
+<p>RQ2：消融实验</p>
+<p>RQ3：实用性评估</p>
+<h2 id="指标">指标</h2>
+<p>Activity覆盖率、代码覆盖率、报告的Bug数量、TP样本、Pre、Rec、F1</p>
+<h2 id="数据集">数据集</h2>
+<p>三个数据集：1）现有数据集（Odin,，RegDroid）；2）基于Github Issue自行爬取的新数据集；3）Bug注入数据集。</p>
+<p>构建数据集2的原因是现有数据集包含的app太老，bug类型太少，所以自行爬取了更多更新的数据。</p>
+<p>构建数据集3的目的是防止数据泄漏，所以手动注入了一些bug。</p>
+<div class="note primary flat"><p>自行构建的数据集可能有bias</p>
+</div>
+<h2 id="结果">结果</h2>
+<h3 id="性能">性能</h3>
+<p><img src="/2025/10/25/paper-journal-tse-LiuLCWCWWHW25/image%208-1761330562376-8.png" alt="image.png"></p>
+<p>VisionDroid的所有指标显著高于Baseline（除了Pre低于两个静态工具，但是两个静态工具在高Pre的情况下Recall非常低）</p>
+<p>最佳Baseline找到的bug是VisionDroid找到bug的子集</p>
+<p>分析：</p>
+<ol>
+<li>与baseline仅使用GUI树相比，VisionDroid加入了图像模态</li>
+<li>VisionDriod考虑了历史信息</li>
+<li>VisionDriod能够理解GUI序列的语义信息</li>
+</ol>
+<p>Failure cases：</p>
+<ol>
+<li>控件缺乏文本描述，MLLM难以理解控件语义</li>
+<li>操作过程中界面有变化（控件ID、外观等，偶现的弹窗），造成历史信息失效</li>
+</ol>
+<h3 id="消融">消融</h3>
+<p><img src="/2025/10/25/paper-journal-tse-LiuLCWCWWHW25/image%209-1761330562376-9.png" alt="image.png"></p>
+<p>分析</p>
+<ol>
+<li>没有CoT和ICL的Pre和Rec下降最明显，说明需要让模型理解什么是功能性bug，如何分析功能性bug</li>
+<li>如果没有图像输入解释（输入布局、框含义等），模型难以理解标注的含义</li>
+</ol>
+<h3 id="实用性评估">实用性评估</h3>
+<p>在数据集的187个App上，VisionDroid从其中的74个App中检测到了102个功能性bug（仅7个FP），其中43个bug是此前未知的bug，31个已被修复，12个已被确认，并得到了开发者的高度认可。</p>
+<h1>思考&amp;启发</h1>
+<ol>
+<li>
+<p>GUI操作序列历史图像可以在一张图里拼接起来，既减少token使用，又能够将图像语义综合在一起，值得借鉴</p>
+</li>
+<li>
+<p>将GUI输入到模型中时，可以添加标记来增强模型对GUI的理解，但一定要有对应的解释</p>
+</li>
+<li>
+<p>RAG在自动化探索还是比较有必要的。要考虑如何将历史Bug、业务信息等融合到Prompt中。</p>
+</li>
+<li>
+<p>文章依赖的输入信息比较浅表，控件的深层语义、基于Activity名字的检索等，有提升空间，可以探讨对控件语义做深层理解，利用语义更丰富的信息作为示例检索依据的提升。</p>
+<blockquote>
+<p>文章也提到，控件中缺少文本信息时模型的表现比较差，此时是否可以进一步识别GUI组件的意图？</p>
+</blockquote>
+</li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://blog.lizbaka.moe">lizbaka</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://blog.lizbaka.moe/2025/10/25/paper-journal-tse-LiuLCWCWWHW25/">https://blog.lizbaka.moe/2025/10/25/paper-journal-tse-LiuLCWCWWHW25/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a> 许可协议。转载请注明来自 <a href="https://blog.lizbaka.moe" target="_blank">lizbaka的星空小屋</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/">论文阅读</a><a class="post-meta__tags" href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/">软件工程</a></div><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2025/10/25/paper-journal-fse-ChenLCWWHW/" title="【论文阅读】一种利用开源软件bug报告进行RAG的UI自动化测试方法"><img class="cover" src="/img/study.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">【论文阅读】一种利用开源软件bug报告进行RAG的UI自动化测试方法</div></div></a></div><div class="next-post pull-right"><a href="/2024/01/26/paper-conf-sigsoft-HuGHZTGCZ23/" title="Appaction 论文阅读笔记"><img class="cover" src="/img/study.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Appaction 论文阅读笔记</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2023/12/26/paper-conf-chi-LiuCWHHW22/" title="NaviDroid 论文阅读笔记"><img class="cover" src="/img/study.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-12-26</div><div class="title">NaviDroid 论文阅读笔记</div></div></a></div><div><a href="/2024/01/26/paper-conf-sigsoft-HuGHZTGCZ23/" title="Appaction 论文阅读笔记"><img class="cover" src="/img/study.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-01-26</div><div class="title">Appaction 论文阅读笔记</div></div></a></div><div><a href="/2025/10/25/paper-journal-corr-abs-2408-00203/" title="【论文阅读】OmniParser"><img class="cover" src="/img/study.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-10-25</div><div class="title">【论文阅读】OmniParser</div></div></a></div><div><a href="/2025/10/25/paper-journal-fse-ChenLCWWHW/" title="【论文阅读】一种利用开源软件bug报告进行RAG的UI自动化测试方法"><img class="cover" src="/img/study.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-10-25</div><div class="title">【论文阅读】一种利用开源软件bug报告进行RAG的UI自动化测试方法</div></div></a></div></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/erroravatar.png'" alt="avatar"/></div><div class="author-info__name">lizbaka</div><div class="author-info__description">或许是个死宅？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">83</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">16</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/lizbaka"><i class="fab fa-github"></i><span>Github</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/lizbaka" target="_blank" title="Github"><i class="fab fa-github"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">动机</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">3个挑战</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%86%E8%A7%89%E9%A9%B1%E5%8A%A8%E7%9A%84%E6%8E%A2%E7%B4%A2%E6%99%BA%E8%83%BD%E4%BD%93Explorer"><span class="toc-number">3.1.</span> <span class="toc-text">视觉驱动的探索智能体Explorer</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E5%83%8F%E4%B8%8E%E6%96%87%E6%9C%AC%E6%A8%A1%E6%80%81%E5%AF%B9%E9%BD%90"><span class="toc-number">3.1.1.</span> <span class="toc-text">图像与文本模态对齐</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Prompting%E6%96%B9%E6%B3%95"><span class="toc-number">3.1.2.</span> <span class="toc-text">Prompting方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%91%E6%8E%A7%E6%99%BA%E8%83%BD%E4%BD%93Monitor"><span class="toc-number">3.2.</span> <span class="toc-text">监控智能体Monitor</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E5%8E%86%E5%8F%B2%E8%AE%B0%E5%BD%95"><span class="toc-number">3.2.1.</span> <span class="toc-text">操作历史记录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bugDetector%E8%A7%A6%E5%8F%91"><span class="toc-number">3.2.2.</span> <span class="toc-text">bugDetector触发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Prompt%E6%96%B9%E6%B3%95"><span class="toc-number">3.2.3.</span> <span class="toc-text">Prompt方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bug%E6%A3%80%E6%B5%8B%E6%99%BA%E8%83%BD%E4%BD%93Detector"><span class="toc-number">3.3.</span> <span class="toc-text">Bug检测智能体Detector</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%9F%E8%83%BD%E9%A9%B1%E5%8A%A8%E7%9A%84CoT"><span class="toc-number">3.3.1.</span> <span class="toc-text">功能驱动的CoT</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ICL"><span class="toc-number">3.3.2.</span> <span class="toc-text">ICL</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Prompt%E6%96%B9%E6%B3%95-2"><span class="toc-number">3.3.3.</span> <span class="toc-text">Prompt方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%81%E7%A8%8B%E7%A4%BA%E4%BE%8B"><span class="toc-number">3.3.4.</span> <span class="toc-text">流程示例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E5%AE%9E%E7%8E%B0%E7%BB%86%E8%8A%82"><span class="toc-number">3.4.</span> <span class="toc-text">其他实现细节</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">实验</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#RQ"><span class="toc-number">4.1.</span> <span class="toc-text">RQ</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%87%E6%A0%87"><span class="toc-number">4.2.</span> <span class="toc-text">指标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="toc-number">4.3.</span> <span class="toc-text">数据集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E6%9E%9C"><span class="toc-number">4.4.</span> <span class="toc-text">结果</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%A7%E8%83%BD"><span class="toc-number">4.4.1.</span> <span class="toc-text">性能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B6%88%E8%9E%8D"><span class="toc-number">4.4.2.</span> <span class="toc-text">消融</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%94%A8%E6%80%A7%E8%AF%84%E4%BC%B0"><span class="toc-number">4.4.3.</span> <span class="toc-text">实用性评估</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">5.</span> <span class="toc-text">思考&amp;启发</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/10/25/paper-journal-corr-abs-2408-00203/" title="【论文阅读】OmniParser"><img src="/img/study.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【论文阅读】OmniParser"/></a><div class="content"><a class="title" href="/2025/10/25/paper-journal-corr-abs-2408-00203/" title="【论文阅读】OmniParser">【论文阅读】OmniParser</a><time datetime="2025-10-24T18:45:44.791Z" title="发表于 2025-10-25 02:45:44">2025-10-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/10/25/paper-journal-fse-ChenLCWWHW/" title="【论文阅读】一种利用开源软件bug报告进行RAG的UI自动化测试方法"><img src="/img/study.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【论文阅读】一种利用开源软件bug报告进行RAG的UI自动化测试方法"/></a><div class="content"><a class="title" href="/2025/10/25/paper-journal-fse-ChenLCWWHW/" title="【论文阅读】一种利用开源软件bug报告进行RAG的UI自动化测试方法">【论文阅读】一种利用开源软件bug报告进行RAG的UI自动化测试方法</a><time datetime="2025-10-24T18:34:28.077Z" title="发表于 2025-10-25 02:34:28">2025-10-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/10/25/paper-journal-tse-LiuLCWCWWHW25/" title="【论文阅读】VisionDroid多智能体UI自动化bug检测框架"><img src="/img/study.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【论文阅读】VisionDroid多智能体UI自动化bug检测框架"/></a><div class="content"><a class="title" href="/2025/10/25/paper-journal-tse-LiuLCWCWWHW25/" title="【论文阅读】VisionDroid多智能体UI自动化bug检测框架">【论文阅读】VisionDroid多智能体UI自动化bug检测框架</a><time datetime="2025-10-24T18:08:43.639Z" title="发表于 2025-10-25 02:08:43">2025-10-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/01/26/paper-conf-sigsoft-HuGHZTGCZ23/" title="Appaction 论文阅读笔记"><img src="/img/study.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Appaction 论文阅读笔记"/></a><div class="content"><a class="title" href="/2024/01/26/paper-conf-sigsoft-HuGHZTGCZ23/" title="Appaction 论文阅读笔记">Appaction 论文阅读笔记</a><time datetime="2024-01-26T09:54:38.407Z" title="发表于 2024-01-26 17:54:38">2024-01-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/12/26/paper-conf-chi-LiuCWHHW22/" title="NaviDroid 论文阅读笔记"><img src="/img/study.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="NaviDroid 论文阅读笔记"/></a><div class="content"><a class="title" href="/2023/12/26/paper-conf-chi-LiuCWHHW22/" title="NaviDroid 论文阅读笔记">NaviDroid 论文阅读笔记</a><time datetime="2023-12-26T09:31:46.000Z" title="发表于 2023-12-26 17:31:46">2023-12-26</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/img/study.png')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By lizbaka</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex/dist/contrib/copy-tex.min.js"></script><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script><script>(() => {
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'https://twikoo-lizbakas-projects.vercel.app/',
+      region: '',
+      onCommentLoaded: () => {
+        btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      }
+    }, null))
+  }
+
+  const loadTwikoo = () => {
+    if (typeof twikoo === 'object') setTimeout(init,0)
+    else getScript('https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js').then(init)
+  }
+
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://twikoo-lizbakas-projects.vercel.app/',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(res => {
+      countELement.textContent = res[0].count
+    }).catch(err => {
+      console.error(err)
+    })
+  }
+
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else {
+      loadTwikoo()
+      
+    }
+  } else {
+    window.loadOtherComment = loadTwikoo
+  }
+})()</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="true"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

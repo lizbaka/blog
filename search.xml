@@ -4,6 +4,93 @@
   
     
     <entry>
+      <title>【论文阅读】OmniParser</title>
+      <link href="/2025/10/25/paper-journal-corr-abs-2408-00203/"/>
+      <url>/2025/10/25/paper-journal-corr-abs-2408-00203/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>原文：<a href="https://arxiv.org/abs/2408.00203">https://arxiv.org/abs/2408.00203</a></p><p>来自微软的工作，比较经典了，当初Orientor转投的时候也简单尝试过效果</p></blockquote><h1>任务</h1><p><strong>纯视觉驱动</strong>的UI屏幕解析工具，将UI截图解析为结构化的信息，促进下游UI自动化任务</p><h1>动机</h1><p>多模态大模型对UI截图及其中的控件呈现出了基础的理解能力。但是在UI自动化任务中：</p><ul><li><p>action grounding有困难</p></li><li><p>GPT-4V难以给出操作的准确xy坐标</p></li><li><p>set-of-marks (SoM)提升了操作的健壮性，但是依赖于HTML解析以及准确的bbox识别，限制了应用范围</p><div class="note info flat"><p>set-of-marks：在输入的截图上标记可交互控件</p><p>Seeing is Believing: Vision-driven Non-crash Functional Bug Detection for Mobile Apps](/2025/10/25/paper-journal-tse-LiuLCWCWWHW25) 工作中提及，可以用不同的标记（比如不同颜色）来标注具有不同属性的控件，但是需要在文字prompt中给模型提供解释</p></div></li></ul><p>希望构建一个跨平台、跨应用的泛化方法</p><h1>贡献</h1><ul><li>基于DOM解析构建了可交互区域检测数据集</li><li>构建了OmniParser，一个纯视觉驱动的UI截图解析方法，整合了多种微调模型</li><li>在ScreenSpot、Mind2Web、AITW数据集上证明了OmniParser方法的有效性</li></ul><h1>方法</h1><p>3个component：可交互icon检测模型，icon描述模型，OCR模块</p><h2 id="可交互区域检测">可交互区域检测</h2><p>SoM输入给LLM，但控件标注信息来自于微调的icon检测模型</p><p>微调数据集来自100k个流行网页，通过DOM树提取控件bbox</p><h2 id="UI控件描述">UI控件描述</h2><p>微调BLIP-v2模型，对控件进行描述</p><p>微调数据集为GPT-4o生成，构建了7k个icon-描述对</p><div class="note primary flat"><p>为什么不直接用LLM的能力进行描述？</p><p>原文：我们认为这一局限性源于GPT-4V在执行复合任务时的能力受限——它需要同时完成识别每个图标的语义信息与预测特定图标区域后续动作的双重任务。</p><p>既然LLM已经在工作流中，为什么不直接调用LLM，但是分开做？逻辑不是很通</p><p>可能的解释：保持效率、降低成本</p></div><h1>验证</h1><h2 id="基于操作描述定位bbox的能力">基于操作描述定位bbox的能力</h2><h3 id="自行构建SeeAssign数据集">自行构建SeeAssign数据集</h3><p>操作和bbox配对</p><p>按每张图上的bbox数量分成三挡难度：easy（&lt;10），medium（10-40），hard（&gt;40）</p><p><img src="/2025/10/25/paper-journal-corr-abs-2408-00203/image.png" alt="image.png"></p><div class="note primary flat"><p><img src="/2025/10/25/paper-journal-corr-abs-2408-00203/image%201.png" alt="image.png"></p><p>LLM输出完全不结构化，好怪</p></div><h3 id="ScreenSpot数据集">ScreenSpot数据集</h3><p>操作与bbox配对，跨平台</p><div class="note primary flat"><p>自行构建数据集的必要性？</p></div><p><img src="/2025/10/25/paper-journal-corr-abs-2408-00203/image%202.png" alt="image.png"></p><h2 id="网页导航能力">网页导航能力</h2><h3 id="Mind2Web数据集">Mind2Web数据集</h3><p>3种类型的任务：跨领域，跨网页，跨任务</p><p><img src="/2025/10/25/paper-journal-corr-abs-2408-00203/image%203.png" alt="image.png"></p><h2 id="多步骤网页浏览能力">多步骤网页浏览能力</h2><h3 id="AITW数据集">AITW数据集</h3><p><img src="/2025/10/25/paper-journal-corr-abs-2408-00203/image%204.png" alt="image.png"></p><blockquote><p>发现icon detection模型具有泛化能力</p></blockquote><h1>讨论</h1><h2 id="failure-cases">failure cases</h2><ul><li>相同的icon和文本，模型容易定位到错误的instance上</li><li><strong>bbox粒度过粗</strong></li><li>icon理解错误：未能结合全局上下文信息</li></ul><h1>思考&amp;启发</h1><ul><li>没有衡量描述的准确性（实际上也比较难衡量），而是基于下游任务进行评估<ul><li>可以借鉴text-image的工作：BLIP/CLIP这些是怎么做的？</li></ul></li><li>局部上下文信息太过有限，在原理上就无法处理重复的icon/文本，以及语义信息对上下文的依赖</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 论文阅读 </category>
+          
+          <category> 软件工程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 论文阅读 </tag>
+            
+            <tag> 软件工程 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>【论文阅读】一种利用开源软件bug报告进行RAG的UI自动化测试方法</title>
+      <link href="/2025/10/25/paper-journal-fse-ChenLCWWHW/"/>
+      <url>/2025/10/25/paper-journal-fse-ChenLCWWHW/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>原文：<a href="https://dl.acm.org/doi/10.1145/3715755">https://dl.acm.org/doi/10.1145/3715755</a></p><p>这篇也很有意思，但是把工作丢给LLM的思路有点暴力</p><p>不管怎么说，有用就行吧</p><p>把bug单挂在Activity转移图下面挺有意思的</p></blockquote><p>基于Bug报告知识库RAG的GUI测试框架</p><blockquote><p>主要关注崩溃类bug</p></blockquote><h1>动机</h1><p><img src="/2025/10/25/paper-journal-fse-ChenLCWWHW/image%201.png" alt="image.png"></p><blockquote><p>人类从历史中学到的唯一教训，就是人类无法从历史中学到任何教训。</p></blockquote><ul><li>现有的方法主要关注在分析App本身的结构上，未能聚焦于聚焦触发Bug本身的路径，导致bug检测效率低下，性能提升空间大。</li><li>一些方法利用KG在相同的APP上通过分析历史测试报告来生成新的测试用例。但KG的构建effort过大，且只能用在一个APP上。</li><li>开源平台上有大量Bug报告，之前没有工作有效利用过。</li><li>相似APP/业务流程更有可能包含相似的Bug，可以利用历史Bug报告检测流程相似的APP上是否存在相同的类型的bug。</li></ul><h1>挑战</h1><ol><li>如何利用历史bug报告构建高质量的、结构化的知识库？</li><li>如何从知识库中检索相关bug报告？</li><li>如何利用其他APP的bug报告在AUT上生成探索路径？</li></ol><h1>方法</h1><p>主要由三个部分组成</p><ol><li>Bug知识库构建</li><li>相似Bug检索</li><li>Bug信息增强的探索路径生成</li></ol><p><img src="/2025/10/25/paper-journal-fse-ChenLCWWHW/image%202.png" alt="image.png"></p><h2 id="Bug知识库构建">Bug知识库构建</h2><p>基于开源软件的知识库构建</p><p><img src="/2025/10/25/paper-journal-fse-ChenLCWWHW/image%203.png" alt="image.png"></p><h3 id="信息获取">信息获取</h3><p>APP文本描述信息获取：扫Readme，提取APP名字和介绍</p><p>ATG获取：rule-based方法和静态分析提取Activity之间的转移</p><p>Bug描述与复现步骤获取</p><h3 id="知识库构建">知识库构建</h3><p>APP描述生成：基于APP描述信息和ATG，通过LLM生成格式统一的APP描述</p><p><img src="/2025/10/25/paper-journal-fse-ChenLCWWHW/image%204.png" alt="image.png"></p><div class="note primary flat"><p>Bug报告结构化：利用BERT对bug的第一步和Activity名字做embedding，计算余弦相似度，实现bug与Activity的映射，把bug挂在ATG的节点上。</p></div><div class="note success flat"><p>这个把RAG信息挂在Activity下的方法很有意思，可以借鉴。</p></div><h2 id="相似Bug检索">相似Bug检索</h2><h3 id="相似APP检索">相似APP检索</h3><p>基于APP文本描述信息和结构化信息的两阶段检索方法</p><p><img src="/2025/10/25/paper-journal-fse-ChenLCWWHW/image%205.png" alt="image.png"></p><ol><li>基于Embedding的检索：通过LLM生成APP描述后，利用Embedding模型向量化，与知识库中的APP进行余弦相似度比对</li><li>基于Cross-Encoder的重排</li></ol><div class="note primary flat"><p>向量化的APP描述丢失了ATG信息，后续的ATG相似性可能没有保证</p></div><h3 id="基于LLM的AUT-Cognitive-Map构建">基于LLM的AUT Cognitive Map构建</h3><p>通过LLM将KB中APP的ATG上的Bug与AUT的ATG节点匹配起来</p><p><img src="/2025/10/25/paper-journal-fse-ChenLCWWHW/image%206.png" alt="image.png"></p><p>输入：</p><ol><li>KB APP的名字、ATG和挂在每个Activity下面的Bug</li><li>AUT的名字和ATG</li></ol><p>要求输出：</p><p>KB APP中的Bug与AUT中Activity的对应关系</p><p><img src="/2025/10/25/paper-journal-fse-ChenLCWWHW/image%207.png" alt="image.png"></p><h2 id="Bug信息增强的测试路径生成">Bug信息增强的测试路径生成</h2><h3 id="GUI页面标注">GUI页面标注</h3><p>对于当前页面，提取UI树，在GUI上用红框标出所有可交互控件，并使用数字ID标记。</p><h3 id="局部路径规划">局部路径规划</h3><p>2个挑战：</p><ol><li><p>bug复现步骤来自开源社区，质量可能不高</p><div class="note primary flat"><p>这里能不能做结构化？有可能是太困难？</p></div></li><li><p>AUT和KB App的操作序列差异可能很大</p></li></ol><p>还是丢给LLM来做，给MLLM提供测试上下文信息的同时，要求MLLM生成等价的操作来复现bug</p><h3 id="全局路径规划">全局路径规划</h3><p>通过记忆机制减少重复的探索</p><ul><li>记录已经探索过的Activity</li><li>完成一个bug的探索后，检查当前Activity是否还有剩余的没有测试过的bug。如果有，则继续按照bug报告探索，否则遍历ATG</li></ul><p><img src="/2025/10/25/paper-journal-fse-ChenLCWWHW/image%208.png" alt="image.png"></p><div class="note primary flat"><p>其他App的bug复现流程如果在AUT根本找不到等价操作怎么办？</p></div><h1>实验</h1><h2 id="RQ">RQ</h2><p>RQ1：Bug检测性能和覆盖率</p><p>RQ2：消融实验</p><p>RQ3：实用性评估</p><h2 id="数据集">数据集</h2><ol><li><p>Themis，从Github上获取的20个开源App，包含34个bug</p><blockquote><p>最后一次更新基本上都在2020年左右，有些已经不能正常运行，数量也比较少</p></blockquote></li><li><p>从F-Droid的每个category上爬取20个最流行的App，保留在2024年5月以后有更新的App，保留不持续崩溃，能够在所有baseline上运行，能够正常提取UI树，包含崩溃bug且能手动复现，没有在知识库中的App，最终获得51个App，包含87个bug。</p></li></ol><h2 id="结果">结果</h2><h3 id="Bug检测性能和覆盖率">Bug检测性能和覆盖率</h3><p><img src="/2025/10/25/paper-journal-fse-ChenLCWWHW/image%209.png" alt="image.png"></p><p><img src="/2025/10/25/paper-journal-fse-ChenLCWWHW/image%2010.png" alt="image.png"></p><blockquote><p>BugHunter前10分钟是在检索相似Bug</p></blockquote><p>相似Bug的例子</p><p><img src="/2025/10/25/paper-journal-fse-ChenLCWWHW/image%2011.png" alt="image.png"></p><p>分析：为什么BugHunter有用？</p><ol><li>BugHunter能够利用上常见的bug模式，比如输入验证错误</li><li>BugHunter能够有效检测app设置中存在的bug</li></ol><h3 id="消融实验">消融实验</h3><p><img src="/2025/10/25/paper-journal-fse-ChenLCWWHW/image%2012.png" alt="image.png"></p><p>分析：</p><ol><li>w/o 相似bug检索的情况下，直接从KB中随机选择bug报告，效果不佳，说明无关bug报告没有意义</li><li>w/o bug报告增强的路径生成相当于没有做RAG，可以视为一个基线</li></ol><p><img src="/2025/10/25/paper-journal-fse-ChenLCWWHW/image%2013.png" alt="image.png"></p><p>分析：</p><ol><li>w/o 重排的性能下降最多。是否重排对检索到的bug列表没有影响，重拍后更相关的bug排在前面，在有限时间内更容易发现bug。</li><li>w/o 全局路径规划同理</li><li>w/o app描述生成变体中，直接使用爬取的非结构化信息来做检索，性能有下降，说明统一结构的APP描述用于检索有重要意义。</li></ol><h3 id="实用性评估">实用性评估</h3><p>在237个app的数据集上，BugHunter从88个app中检测到了93个崩溃bug，其中45个app上的49个bug此前从未被发现。</p><p>最佳Baseline（GPTDroid）仅检测到了其中7个，且均为BugHunter的子集。</p><p>49个新Bug均已提交，其中42个已经被修复或确认，没有bug被拒绝。</p><h1>思考&amp;启发</h1><ul><li>应该是首个将bug报告利用RAG的思路引入到自动化测试中的，并且提供了一个方法论</li><li>方法中把bug在ATG上与Activity关联起来的方法很有意思，实现了bug与应用内状态的精确匹配，值得借鉴</li><li>图已经出来了，能不能在检索的时候直接基于图结构做检索，而不是转成文字描述之后再检索？<ul><li>转成文字模态以后结构信息丢失了</li></ul></li><li>同样也在GUI上添加了组件标记，应该是一个比较常用且有效的手段。</li><li>组会上分享这篇文章的时候，也有个学姐提到说这个工作里面的一些部分使用LLM似乎不是很必要</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 论文阅读 </category>
+          
+          <category> 软件工程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 论文阅读 </tag>
+            
+            <tag> 软件工程 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>【论文阅读】VisionDroid多智能体UI自动化bug检测框架</title>
+      <link href="/2025/10/25/paper-journal-tse-LiuLCWCWWHW25/"/>
+      <url>/2025/10/25/paper-journal-tse-LiuLCWCWWHW25/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>原文：<a href="https://ieeexplore.ieee.org/document/11181197">https://ieeexplore.ieee.org/document/11181197</a></p><p>最近回来做一些UI自动化相关的工作了，在狠狠地薅王俊杰老师组的羊毛</p></blockquote><p>一个移动APP上的功能性Bug自动化检测框架VisionDroid</p><p>自动化探索、多智能体、视觉驱动</p><h1>动机</h1><ul><li>由于缺乏明确的<strong>测试预言</strong>，现有的GUI测试方法难以有效检测功能性bug，多数局限在崩溃类bug上。</li><li>许多功能性bug会在GUI上有明显的表现，但通过GUI识别这些bug需要在GUI本身乃至<strong>GUI之间的转换</strong>上进行逻辑推理，同时需要一定的<strong>背景知识</strong>。现有的方法缺乏这样的能力。</li></ul><h1>3个挑战</h1><ol><li><p>视觉与文字模态输入的对齐</p><p>一方面，如果直接把图片塞给模型，MLLM可能会忽略很多细节；另一方面，MLLM的输出局限在文本模态，需要考虑如何将文本输出与GUI操作对齐</p></li><li><p>功能意图层面导向的应用探索</p><p>动作层面的信息对MLLM来讲太过细节且语义不够丰富，使其无法关注到功能层面的语义，需要理解动作对应的功能意图</p></li><li><p>测试预言推理</p><p>自动化应用探索检测功能性bug难以预先定义测试预言。</p></li></ol><h1>方法</h1><p>VisionDroid由三个Agent组成，分别是视觉驱动的探索智能体Explorer，监控智能体Monitor和Bug检测智能体Detector</p><p><img src="/2025/10/25/paper-journal-tse-LiuLCWCWWHW25/image%201-1761330562376-1.png" alt="image.png"></p><h2 id="视觉驱动的探索智能体Explorer">视觉驱动的探索智能体Explorer</h2><p>负责基于APP信息执行实际探索</p><h3 id="图像与文本模态对齐">图像与文本模态对齐</h3><p>通过图像标注，将控件与文本上线对应起来</p><p>文本上下文：</p><ul><li>全局信息：从应用中获取App名字、Activity名字</li><li>控件信息：从UI层次树中文本、resource-id、交互方法</li></ul><p>图像标注：</p><ul><li>在UI截图上画框，<strong>通过不同颜色的框</strong>来标识控件交互方法</li></ul><p><img src="/2025/10/25/paper-journal-tse-LiuLCWCWWHW25/image%202-1761330562376-2.png" alt="image.png"></p><ul><li>通过编号将控件与文本信息关联起来</li></ul><div class="note success flat"><p>这个用不同颜色表示交互方法的技巧值得参考。</p></div><div class="note primary flat"><ul><li>GUI控件的描述信息提取比较简单，没有对控件功能做进一步推理，功能理解直接交给MLLM隐式的推理了</li><li>Activity名字、控件描述信息的提取依赖于代码，虽然可以用ADB工具获取，但是也算是灰盒甚至白盒测试了。不适用于游戏等纯黑盒场景，在现代APP的各种非原生开发技术栈上的泛化性也有疑问。</li></ul></div><h3 id="Prompting方法">Prompting方法</h3><p><img src="/2025/10/25/paper-journal-tse-LiuLCWCWWHW25/image%203-1761330562376-3.png" alt="image.png"></p><p>文本模态输入：</p><ol><li>APP和GUI信息</li><li>历史操作信息</li><li>来自BugDetector的探索优化反馈</li><li>图像标记解释</li></ol><p>图像模态输入：</p><ol><li>历史操作及对应功能，截图中用不同颜色的框标记了操作的控件</li><li>当前页面，截图中用不同颜色的标记了所有可操作控件</li></ol><p>要求输出：</p><ol><li>动作指令（e.g. 点击/长按/勾选/滑动某一组件，输入文本以及输入文本后的操作）</li></ol><div class="note success flat"><p>这种将多个界面拼起来的历史信息提供方式很有意思，同时也能减少token量，值得参考</p></div><div class="note primary flat"><p>动作的目标是控件。界面滑动这种怎么算？没有说清楚。</p></div><h2 id="监控智能体Monitor">监控智能体Monitor</h2><p>负责</p><ul><li>总揽测试过程</li><li>总结探索历史中的步骤</li><li>在合适的时候调用Detector检测Bug</li></ul><h3 id="操作历史记录">操作历史记录</h3><p>记录UI树、界面截图以及相关的操作，抽象出操作/GUI对应的应用功能。</p><p>在图像上以功能和对应截图的形式记录历史，截图中用不同颜色的框标记操作的控件</p><p><img src="/2025/10/25/paper-journal-tse-LiuLCWCWWHW25/image%204-1761330562376-4.png" alt="image.png"></p><p>为避免Token超限而进行的信息压缩策略：</p><ol><li>使用编号标识控件</li><li>只记录重要/信息量大的交互步骤</li></ol><div class="note primary flat"><p>怎么界定某个步骤值得记录？没有说的很清楚</p></div><h3 id="bugDetector触发">bugDetector触发</h3><p>实时检测一个功能是否已经完成测试。如果已经完成，则暂停探索，调用Detector检查操作历史，检测此前测试的功能中是否存在bug。</p><div class="note primary flat"><p>如果bug发生在被过滤掉的交互步骤中呢？</p></div><h3 id="Prompt方法">Prompt方法</h3><p><img src="/2025/10/25/paper-journal-tse-LiuLCWCWWHW25/image%205-1761330562376-5.png" alt="image.png"></p><p>文本模态输入：</p><ol><li>之前测试的功能和对应的动作</li><li>测试历史</li><li>图像标记解释</li></ol><p>图像模态输入：</p><ol><li>历史操作及对应功能，截图中用不同颜色的框标记了操作的控件</li><li>当前页面，截图中用不同颜色的标记了所有可操作控件</li></ol><p>要求输出：</p><ol><li>GUI描述</li><li>描述当前正在测试的功能，同时检测现在是不是开始测试一个新功能了。</li></ol><h2 id="Bug检测智能体Detector">Bug检测智能体Detector</h2><p>负责</p><ul><li>检测执行序列中存在的逻辑问题</li><li>检测执行序列中存在的错误动作，给Explorer提供探索优化建议</li></ul><h3 id="功能驱动的CoT">功能驱动的CoT</h3><p>提示模型一步步分析，减轻幻觉影响</p><p>分析步骤：</p><ol><li>识别当前正在测试的功能，输出功能名称和描述，帮助模型理解功能</li><li>分析期望操作路径：根据功能描述，推测期望的操作路径，作为评价基准</li><li>分析实际操作路径：检查实际进行操作路径，与期望路径做比对</li></ol><h3 id="ICL">ICL</h3><p>利用开源移动app的issue构建样例数据库。</p><p>对于每个sample，结构化记录bug对应的功能、触发bug的操作序列、与期望行为的对比，帮助模型理解什么是功能性bug。</p><p>最终采集了200个高质量bug条目。</p><blockquote><p>实验时，在数据库中排除待测APP，防止数据泄露</p></blockquote><p>实践中，样例数据库可以动态扩充，新发现的bug经过人工检验后可以自动结构化并加入到数据库中。</p><p>通过比对Activity名字来检索样例，基于Word2Vec+余弦相似度检索。</p><div class="note primary flat"><p>Activity名字语义深度可能不太够，比较依赖开发者的命名习惯了，不过这个做法是follow之前的工作做的。</p></div><h3 id="Prompt方法-2">Prompt方法</h3><p><img src="/2025/10/25/paper-journal-tse-LiuLCWCWWHW25/image%206-1761330562376-6.png" alt="image.png"></p><p>文本模态输入：</p><ol><li>Bug示例</li><li>CoT指令</li><li>图像标记解释</li></ol><p>图像模态输入：</p><ol><li>历史操作及对应功能，截图中用不同颜色的框标记了操作的控件</li><li>当前页面</li></ol><p>要求输出：</p><ul><li>应用截图变化序列是否符合预期</li><li>检测某个页面/某个操作会触发bug（反馈给Explorer）</li><li>检测Explorer做出的错误操作（反馈给Explorer）</li></ul><h3 id="流程示例">流程示例</h3><p><img src="/2025/10/25/paper-journal-tse-LiuLCWCWWHW25/image%207-1761330562376-7.png" alt="image.png"></p><h2 id="其他实现细节">其他实现细节</h2><p>采用GPT-4V作为MLLM</p><p>检索示例k=4（有超参实验）</p><h1>实验</h1><h2 id="RQ">RQ</h2><p>RQ1：覆盖率、bug检测性能</p><p>RQ2：消融实验</p><p>RQ3：实用性评估</p><h2 id="指标">指标</h2><p>Activity覆盖率、代码覆盖率、报告的Bug数量、TP样本、Pre、Rec、F1</p><h2 id="数据集">数据集</h2><p>三个数据集：1）现有数据集（Odin,，RegDroid）；2）基于Github Issue自行爬取的新数据集；3）Bug注入数据集。</p><p>构建数据集2的原因是现有数据集包含的app太老，bug类型太少，所以自行爬取了更多更新的数据。</p><p>构建数据集3的目的是防止数据泄漏，所以手动注入了一些bug。</p><div class="note primary flat"><p>自行构建的数据集可能有bias</p></div><h2 id="结果">结果</h2><h3 id="性能">性能</h3><p><img src="/2025/10/25/paper-journal-tse-LiuLCWCWWHW25/image%208-1761330562376-8.png" alt="image.png"></p><p>VisionDroid的所有指标显著高于Baseline（除了Pre低于两个静态工具，但是两个静态工具在高Pre的情况下Recall非常低）</p><p>最佳Baseline找到的bug是VisionDroid找到bug的子集</p><p>分析：</p><ol><li>与baseline仅使用GUI树相比，VisionDroid加入了图像模态</li><li>VisionDriod考虑了历史信息</li><li>VisionDriod能够理解GUI序列的语义信息</li></ol><p>Failure cases：</p><ol><li>控件缺乏文本描述，MLLM难以理解控件语义</li><li>操作过程中界面有变化（控件ID、外观等，偶现的弹窗），造成历史信息失效</li></ol><h3 id="消融">消融</h3><p><img src="/2025/10/25/paper-journal-tse-LiuLCWCWWHW25/image%209-1761330562376-9.png" alt="image.png"></p><p>分析</p><ol><li>没有CoT和ICL的Pre和Rec下降最明显，说明需要让模型理解什么是功能性bug，如何分析功能性bug</li><li>如果没有图像输入解释（输入布局、框含义等），模型难以理解标注的含义</li></ol><h3 id="实用性评估">实用性评估</h3><p>在数据集的187个App上，VisionDroid从其中的74个App中检测到了102个功能性bug（仅7个FP），其中43个bug是此前未知的bug，31个已被修复，12个已被确认，并得到了开发者的高度认可。</p><h1>思考&amp;启发</h1><ol><li><p>GUI操作序列历史图像可以在一张图里拼接起来，既减少token使用，又能够将图像语义综合在一起，值得借鉴</p></li><li><p>将GUI输入到模型中时，可以添加标记来增强模型对GUI的理解，但一定要有对应的解释</p></li><li><p>RAG在自动化探索还是比较有必要的。要考虑如何将历史Bug、业务信息等融合到Prompt中。</p></li><li><p>文章依赖的输入信息比较浅表，控件的深层语义、基于Activity名字的检索等，有提升空间，可以探讨对控件语义做深层理解，利用语义更丰富的信息作为示例检索依据的提升。</p><blockquote><p>文章也提到，控件中缺少文本信息时模型的表现比较差，此时是否可以进一步识别GUI组件的意图？</p></blockquote></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 论文阅读 </category>
+          
+          <category> 软件工程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 论文阅读 </tag>
+            
+            <tag> 软件工程 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Appaction 论文阅读笔记</title>
       <link href="/2024/01/26/paper-conf-sigsoft-HuGHZTGCZ23/"/>
       <url>/2024/01/26/paper-conf-sigsoft-HuGHZTGCZ23/</url>
